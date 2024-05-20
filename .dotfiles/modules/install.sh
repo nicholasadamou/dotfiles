@@ -2,7 +2,7 @@
 
 # GitHub user/repo & branch value of your set-me-up blueprint (e.g.: dotbrains/set-me-up-blueprint/master).
 # Set this value when the installer should additionally obtain your blueprint.
-export SMU_BLUEPRINT=${SMU_BLUEPRINT:-"dotbrains/set-me-up-blueprint"}
+export SMU_BLUEPRINT=${SMU_BLUEPRINT:-"nicholasadamou/dotfiles"}
 export SMU_BLUEPRINT_BRANCH=${SMU_BLUEPRINT_BRANCH:-"master"}
 
 # The set-me-up version to download
