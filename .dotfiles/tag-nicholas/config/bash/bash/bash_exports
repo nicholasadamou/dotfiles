@@ -1,0 +1,168 @@
+#!/bin/bash
+
+# Bash Variables.
+# https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Make `nvim` the default editor.
+
+export EDITOR="nvim"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Ignore commands that start with spaces and duplicates.
+
+export HISTCONTROL=ignoreboth
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Increase the maximum number of lines of history
+# persisted in the history file (default value is 500).
+
+export HISTFILESIZE=10000
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Don't add certain commands to the history file.
+
+export HISTIGNORE="&:[bf]g:c:clear:history:exit:q:pwd:* --help"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Increase the maximum number of commands recorded
+# in the command history (default value is 500).
+
+export HISTSIZE=10000
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Prefer US English and use UTF-8 encoding.
+
+export LANG="en_US"
+export LC_ALL="en_US.UTF-8"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Use custom `less` colors for `man` pages.
+
+export LESS_TERMCAP_md="$(
+	tput bold 2>/dev/null
+	tput setaf 2 2>/dev/null
+)"
+export LESS_TERMCAP_me="$(tput sgr0 2>/dev/null)"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Don't clear the screen after quitting a `man` page.
+
+export MANPAGER="less -X"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Increase the maximum number of lines of history persisted
+# in the `Node` REPL history file (default value is 1000).
+#
+# https://github.com/nodejs/node/blob/c948877688ff2b6a37f2c88724b656aae495c7b2/doc/api/repl.md#persistent-history
+
+export NODE_REPL_HISTORY_SIZE=10000
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Make new shells get the history lines from all previous
+# shells instead of the default "last window closed" history.
+
+export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Make Python use UTF-8 encoding for output to stdin/stdout/stderr.
+
+export PYTHONIOENCODING="UTF-8"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Ruby configurations
+# Adds "GEMS_PATH" to "$PATH"
+# Fixes "I INSTALLED GEMS WITH --user-install AND THEIR COMMANDS ARE NOT AVAILABLE"
+# see: https://guides.rubygems.org/faqs/#user-install
+
+if command -v gem &>/dev/null; then
+	if [ -d "$(gem environment gemdir)/bin" ]; then
+		export PATH="$(gem environment gemdir)/bin:$PATH"
+	fi
+fi
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Add ~/.local/bin to $PATH
+
+if [ -d "$HOME/.local/bin" ]; then
+	export PATH="$HOME/.local/bin:$PATH"
+fi
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Add /snap/bin to $PATH
+
+if [ -d "/snap/bin" ]; then
+	export PATH="/snap/bin:$PATH"
+fi
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Catppuccin for fzf (Macchiato)
+# see: https://github.com/catppuccin/fzf
+# export FZF_DEFAULT_OPTS=" \
+# --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
+# --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
+# --color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796"
+
+# Catppuccin for Bat (Macchiato)
+# see: https://github.com/catppuccin/bat
+# export BAT_THEME="Catppuccin-macchiato"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Nord for fzf
+# see: https://github.com/ianchesal/nord-fzf
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+    --color=fg:#e5e9f0,bg:#3b4252,hl:#81a1c1
+    --color=fg+:#e5e9f0,bg+:#3b4252,hl+:#81a1c1
+    --color=info:#eacb8a,prompt:#bf6069,pointer:#b48dac
+    --color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b'
+
+# Nord for Bat
+export BAT_THEME="Nord"
+
+# Set custom 'ls' colors
+# see: https://github.com/nordtheme/dircolors
+
+test -r "$HOME"/.config/bash/bash/dir_colors && eval "$(dircolors "$HOME"/.config/bash/bash/dir_colors)"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Add ~/set-me-up to $PATH
+
+if [ -d "$HOME/set-me-up" ]; then
+	export PATH="$HOME/set-me-up:$PATH"
+fi
+
+# Add ~/set-me-up/set-me-up-installer to $PATH
+if [ -d "$HOME/set-me-up/set-me-up-installer" ]; then
+	export PATH="$HOME/set-me-up/set-me-up-installer:$PATH"
+fi
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Configure linuxbrew
+# see: https://docs.brew.sh/Homebrew-on-Linux#install
+
+test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Make a global variable to access the dotfiles repository
+
+export DOTFILES="$HOME/set-me-up"

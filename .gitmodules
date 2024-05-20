@@ -1,0 +1,24 @@
+[submodule ".dotfiles/utilities"]
+	path = .dotfiles/utilities
+	url = https://github.com/dotbrains/utilities
+[submodule ".dotfiles/tag-smu/config/ranger/plugins/zoxide"]
+	path = .dotfiles/tag-smu/config/ranger/plugins/zoxide
+	url = https://github.com/jchook/ranger-zoxide.git
+[submodule ".dotfiles/tag-smu/config/nvim"]
+	path = .dotfiles/tag-smu/config/nvim
+	url = https://github.com/dotbrains/nvim
+[submodule ".dotfiles/tag-smu/tmux"]
+	path = .dotfiles/tag-smu/tmux
+	url = https://github.com/dotbrains/tmux
+[submodule "set-me-up-installer"]
+	path = set-me-up-installer
+	url = https://github.com/dotbrains/set-me-up-installer
+[submodule ".dotfiles/tag-smu/config/zsh"]
+	path = .dotfiles/tag-smu/config/zsh
+	url = https://github.com/dotbrains/zsh.git
+[submodule ".dotfiles/tag-smu/config/bash"]
+	path = .dotfiles/tag-smu/config/bash
+	url = https://github.com/dotbrains/bash.git
+[submodule ".dotfiles/tag-smu/config/fish"]
+	path = .dotfiles/tag-smu/config/fish
+	url = https://github.com/dotbrains/fish.git

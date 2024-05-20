@@ -1,0 +1,58 @@
+#!/bin/bash
+
+BIN_NAME=$(basename "$0")
+COMMAND_NAME=$1
+
+SMU_PATH="$HOME"/set-me-up
+
+help() {
+  echo "Usage: $BIN_NAME <command>"
+  echo
+  echo "Commands:"
+  echo "   clean            Clean up caches (brew, nvm)"
+  echo "   edit             Open dotfiles in visual-studio-code"
+  echo "   macos            Apply macOS system defaults"
+  echo "   update           Update MacOS and set-me-up"
+  echo "   help             This help message"
+}
+
+edit() {
+  command -v "code" &>/dev/null &&
+    sh -c "code $SMU_PATH"
+}
+
+update() {
+  rm -rf "$SMU_PATH"
+
+  bash <(curl -s -L https://raw.githubusercontent.com/dotbrains/dotfiles/master/.dotfiles/modules/install.sh)
+}
+
+clean() {
+  command -v "brew" &>/dev/null &&
+    brew cleanup
+
+  command -v "nvm" &>/dev/null && {
+    . "$NVM_DIR/nvm.sh" &&
+      nvm cache clear
+  }
+}
+
+macos() {
+  [ -d "$SMU_PATH" ] &&
+    "$SMU_PATH"/smu -p -m preferences --no-base
+}
+
+case "$COMMAND_NAME" in
+"" | "-h" | "--help")
+  help
+  ;;
+*)
+  shift
+  "${COMMAND_NAME}" "$@"
+  if [ $? = 127 ]; then
+    echo "'$COMMAND_NAME' is not a known command." >&2
+    help
+    exit 1
+  fi
+  ;;
+esac

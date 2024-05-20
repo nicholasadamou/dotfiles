@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# Small utility to push the current branch to the remote repository.
+# If the branch is not in the remote, it will push it and set the upstream.
+
+# Created mainly because I am always creating new branches, but I have to first
+# push them to upstream, and then push them to the remote repository.
+# This utility will do both in one command.
+# Workflow:
+# git checkout -b some-branch && \
+#	git add -A && \
+#	git commit -m "message" && \
+#	git-push
+
+# Error states:
+# If there are uncommitted changes.
+# If there is no remote repository.
+# If there is no branch.
+
+# check if there is a remote
+if [ -z "$(git config --get remote.origin.url)" ]; then
+	echo "No remote repository found. Please add one with:"
+	echo "git remote add origin <remote url>"
+	exit 1
+fi
+
+# check if there is a branch
+if [ -z "$(git rev-parse --abbrev-ref HEAD)" ]; then
+	echo "No branch found. Please create one with:"
+	echo "git checkout -b <branch name>"
+	exit 1
+fi
+
+# check if there is uncommitted changes
+if [ -n "$(git status --porcelain)" ]; then
+	echo "There are uncommitted changes. Please commit them first."
+	exit 1
+fi
+
+# check if this branch is in the remote
+if [ -z "$(git branch -r | grep origin/"$(git rev-parse --abbrev-ref HEAD)")" ]; then
+	git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"
+
+	exit 0
+fi
+
+# push the branch
+git push

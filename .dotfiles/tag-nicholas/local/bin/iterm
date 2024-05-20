@@ -1,0 +1,74 @@
+#!/bin/bash
+#
+# Open new iTerm window from the command line using v3 syntax for applescript as needed in iTerm2 Version 3+
+# This script blocks until the cmd is executed in the new iTerm2 window.  It then leaves the window open.
+
+# See also https://www.iterm2.com/documentation-scripting.html
+#
+# Note that the name "iTerm" may need to be changed to "iTerm2" in the AppleScript script for this to work.
+#
+# Usage:
+#     iterm                   Opens the current directory in a new iTerm window
+#     iterm [PATH]            Open PATH in a new iTerm window
+#     iterm [CMD]             Open a new iTerm window and execute CMD
+#     iterm [PATH] [CMD]      Opens a new iTerm window @ the PATH and executes CMD
+#
+# Example:
+#     iterm ~/Code/HelloWorld ./setup.sh
+#
+# References:
+#     iTerm AppleScript Examples:
+#     https://gitlab.com/gnachman/iterm2/wikis/Applescript
+#
+# Credit:
+#     Forked from https://gist.github.com/vyder/96891b93f515cb4ac559e9132e1c9086
+#     Inspired by tab.bash by @bobthecow
+#     link: https://gist.github.com/bobthecow/757788
+
+# Mac OS only
+[ "$(uname -s)" != "Darwin" ] && {
+	echo 'Mac OS Only'
+	return
+}
+
+function iterm() {
+    local cmd=""
+    local wd="$PWD"
+    local args="$*"
+
+	# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    if [ -d "$1" ]; then
+        wd="$1"
+        args="${*:2}"
+    fi
+
+    if [ -n "$args" ]; then
+        cmd="$args"
+    fi
+
+	# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    osascript <<EOF
+tell application "iTerm"
+	activate
+	set new_window to (create window with default profile)
+	set cSession to current session of new_window
+	tell new_window
+		tell cSession
+			delay 1
+			write text "cd $wd ; $cmd"
+			delay 2
+			repeat
+				delay 0.1
+				--          display dialog cSession is at shell prompt
+				set isdone to is at shell prompt
+				if isdone then exit repeat
+			end repeat
+		end tell
+	end tell
+end tell
+EOF
+}
+
+iterm "$@"
