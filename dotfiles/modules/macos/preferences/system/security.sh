@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "$HOME/set-me-up/.dotfiles/utilities/utilities.sh"
+source "$HOME/set-me-up/dotfiles/utilities/utilities.sh"
 
 ask_for_sudo
 

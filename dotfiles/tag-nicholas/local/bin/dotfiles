@@ -24,7 +24,7 @@ edit() {
 update() {
   rm -rf "$SMU_PATH"
 
-  bash <(curl -s -L https://raw.githubusercontent.com/dotbrains/dotfiles/master/.dotfiles/modules/install.sh)
+  bash <(curl -s -L https://raw.githubusercontent.com/dotbrains/dotfiles/master/dotfiles/modules/install.sh)
 }
 
 clean() {

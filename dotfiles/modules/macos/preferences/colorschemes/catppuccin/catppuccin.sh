@@ -2,10 +2,10 @@
 
 # shellcheck source=/dev/null
 
-declare current_dir && \
-    current_dir="$(dirname "${BASH_SOURCE[0]}")" && \
-    cd "${current_dir}" && \
-    source "$HOME/set-me-up/.dotfiles/utilities/utilities.sh"
+declare current_dir &&
+    current_dir="$(dirname "${BASH_SOURCE[0]}")" &&
+    cd "${current_dir}" &&
+    source "$HOME/set-me-up/dotfiles/utilities/utilities.sh"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -24,7 +24,7 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    # Catppuccin for Bat 
+    # Catppuccin for Bat
     # see: https://github.com/catppuccin/bat
 
     git clone https://github.com/catppuccin/bat ~/.config/bat/catppuccin

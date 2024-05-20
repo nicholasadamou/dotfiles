@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "$HOME/set-me-up/.dotfiles/utilities/utilities.sh"
+source "$HOME/set-me-up/dotfiles/utilities/utilities.sh"
 
 ask_for_sudo
 
@@ -10,4 +10,4 @@ ask_for_sudo
 sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
 
 # Restart spotlight
-killall mds > /dev/null 2>&1
+killall mds >/dev/null 2>&1
