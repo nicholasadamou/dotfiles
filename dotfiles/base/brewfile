@@ -1,0 +1,121 @@
+tap "bramstein/webfonttools"
+tap "github/gh"
+tap "jkfran/killport"
+
+# Install GNU-related tools
+brew "coreutils"
+
+# Install GNU `grep`, overwriting the built-in `grep`.
+brew "grep"
+# Install GNU `sed`, overwriting the built-in `sed`.
+brew "gnu-sed"
+
+# Install a more recent version of 'vim', overwriting the built-in `vi`.
+brew "vim"
+
+# Install neovim, a modern version of vim.
+brew "neovim"
+
+# Install some other useful utilities like `sponge`.
+brew "moreutils"
+
+# Install GNU `find`, `locate`, `updatedb`, and `xargs`
+brew "findutils"
+
+# Install `wget`.
+brew "wget"
+
+# Install a more recent version of 'bash'.
+brew "bash"
+brew "bash-completion2"
+
+# Mac OS management
+brew "m-cli"
+brew "dark-mode"
+brew "wallpaper"
+
+# Image processing
+brew "webkit2png"
+brew "zopfli"
+brew "pngcrush"
+brew "imagemagick"
+
+# VCS related
+brew "git"
+brew "git-lfs"
+brew "git-flow"
+brew "git-extras"
+brew "hub"
+brew "tig"
+brew "gh"
+brew "lazygit"
+cask "ksdiff"
+
+# File/directory management
+brew "fzf"
+brew "fzy"
+brew "z"
+brew "exa"
+brew "zoxide"
+brew "exa"
+brew "bat"
+brew "goto"
+brew "jump"
+brew "ranger"
+brew "tree"
+brew "rename"
+brew "piknik"
+brew "rm-improved"
+brew "ripgrep"
+brew "fd"
+
+# Compression utilities
+brew "p7zip"
+brew "pigz"
+brew "xz"
+
+# Networking
+brew "speedtest_cli"
+brew "httpie"
+brew "ssh-copy-id"
+brew "pv"
+
+# Terminal multiplexing
+brew "tmux"
+brew "reattach-to-user-namespace"
+
+# Install other useful binaries.
+brew "thefuck"
+brew "starship"
+
+# docker
+brew "lazydocker"
+
+# Security
+brew "maliceio/tap/malice"
+
+# Music
+brew "spotify-tui"
+
+# Misc.
+brew "shellcheck"
+brew "killport"
+brew "percol"
+brew "peco"
+brew "micro"
+brew "hstr"
+brew "ccat"
+brew "thefuck"
+brew "the_silver_searcher"
+brew "asciinema"
+brew "sebglazebrook/aliases/aliases"
+brew "screen"
+brew "ack"
+brew "shellcheck"
+brew "micro"
+brew "pandoc"
+brew "hh"
+brew "entr"
+brew "starship"
+brew "asitop"
+brew "code-minimap"

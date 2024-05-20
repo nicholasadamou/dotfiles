@@ -14,12 +14,17 @@ Nick's sensible MacOS defaults based on [`set-me-up-blueprint`](https://github.c
 1.  [Read the docs](https://github.com/dotbrains/set-me-up#set-me-up).
 2.  Use the [installer](/dotfiles/modules/install.sh) to obtain `set-me-up` and Nick's blueprint.
 
-(⚠️ **DO NOT** run the `install` snippet if you don't fully
+    (⚠️ **DO NOT** run the `install` snippet if you don't fully
 understand [what it does](/dotfiles/modules/install.sh). Seriously, **DON'T**!)
 
-```bash
- bash <(curl -s -L https://raw.githubusercontent.com/nicholasadamou/dotfiles/main/dotfiles/modules/install.sh)
-```
+        bash <(curl -s -L https://raw.githubusercontent.com/nicholasadamou/dotfiles/main/dotfiles/modules/install.sh)
+
+3. Use the `smu` script (which you will find inside the `smu` home directory) to run the base module.
+
+        smu --provision \
+			--module base
+
+    ⚠️ Please note that after running the base module, moving the source folder is not recommended due to the usage of symlinks.
 
 ## License
 
