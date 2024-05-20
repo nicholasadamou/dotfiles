@@ -92,10 +92,10 @@ main() {
     # Colorschems
 
     # Nord
-    ./colorschemes/nord.sh
+    ./colorschemes/nord/nord.sh
 
     # Catppuccin
-    # ./colorschemes/catppuccino.sh
+    # ./colorschemes/catppuccino/catppuccino.sh
 
 }
 
