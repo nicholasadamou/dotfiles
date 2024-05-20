@@ -1,177 +1,177 @@
 [user]
 
-	name = Nicholas Adamou
-    email = dotbrainsemail@gmail.com
+name = Nicholas Adamou
+email = nicholasadamouemail@gmail.com
 
-    # Do not guess the user's identity.
-    # https://github.com/git/git/blob/90f7b16b3adc78d4bbabbd426fb69aa78c714f71/Documentation/config.txt#L2847-L2855
+# Do not guess the user's identity.
+# https://github.com/git/git/blob/90f7b16b3adc78d4bbabbd426fb69aa78c714f71/Documentation/config.txt#L2847-L2855
 
-    useConfigOnly = true
+useConfigOnly = true
 
 [github]
 
-	# user = <enter user here>
-	# token = <enter token here>
+# user = <enter user here>
+# token = <enter token here>
 
 [credential]
 
-	helper = cache --timeout=3600
+helper = cache --timeout=3600
 
 # Configure Kaleidoscope as the default diff and merge tool.
 
 [diff]
 
-    tool = Kaleidoscope
+tool = Kaleidoscope
 
 [difftool "Kaleidoscope"]
 
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 
 [merge]
 
-    tool = Kaleidoscope
+tool = Kaleidoscope
 
 [mergetool "Kaleidoscope"]
 
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
+cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+trustExitCode = true
 
 # Make sure you're adding under the [alias] block.
 [alias]
-	# Status
-	s = status
+# Status
+s = status
 
-	# Add
-	a = add
+# Add
+a = add
 
-	# Commit
-	c = commit
+# Commit
+c = commit
 
-	# Push
-	p = push
+# Push
+p = push
 
-	# Force push
-	# see: https://stackoverflow.com/a/52823955
-	fp = push --force-with-lease
+# Force push
+# see: https://stackoverflow.com/a/52823955
+fp = push --force-with-lease
 
-	# Checkout
-	co = checkout
+# Checkout
+co = checkout
 
-	# Cherry-pick
-	cp  = cherry-pick
+# Cherry-pick
+cp = cherry-pick
 
-	# Ammend last commit
-	amend = commit --amend
+# Ammend last commit
+amend = commit --amend
 
-	# Make a file executable.
-	# see: https://stackoverflow.com/a/38285435/5290011
-	gamod = add --chmod=+x $1
+# Make a file executable.
+# see: https://stackoverflow.com/a/38285435/5290011
+gamod = add --chmod=+x $1
 
-	# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-	# Taken from: https://github.com/ahmadawais/Emoji-Log
+# Taken from: https://github.com/ahmadawais/Emoji-Log
 
-	# Git Commit, Add all and Push — in one step.
-	cap = "!f() { git add .; git commit -m \"$@\"; git push; }; f"
+# Git Commit, Add all and Push — in one step.
+cap = "!f() { git add .; git commit -m \"$@\"; git push; }; f"
 
-	# NEW.
-	new = "!f() { git cap \"📦 NEW: $@\"; }; f"
-	# IMPROVE.
-	imp = "!f() { git cap \"👌 IMPROVE: $@\"; }; f"
-	# FIX.
-	fix = "!f() { git cap \"🐛 FIX: $@\"; }; f"
-	# UPDATE.
-	up = "!f() { git cap \"🔼 UPDATED: $@\"; }; f"
-	# RELEASE.
-	rlz = "!f() { git cap \"🚀 RELEASE: $@\"; }; f"
-	# DOC.
-	doc = "!f() { git cap \"📖 DOC: $@\"; }; f"
-	# TEST.
-	tst = "!f() { git cap \"🤖 TEST: $@\"; }; f"
-	# BREAKING CHANGE.
-	brk = "!f() { git cap \"‼️ BREAKING: $@\"; }; f"
+# NEW.
+new = "!f() { git cap \"📦 NEW: $@\"; }; f"
+# IMPROVE.
+imp = "!f() { git cap \"👌 IMPROVE: $@\"; }; f"
+# FIX.
+fix = "!f() { git cap \"🐛 FIX: $@\"; }; f"
+# UPDATE.
+up = "!f() { git cap \"🔼 UPDATED: $@\"; }; f"
+# RELEASE.
+rlz = "!f() { git cap \"🚀 RELEASE: $@\"; }; f"
+# DOC.
+doc = "!f() { git cap \"📖 DOC: $@\"; }; f"
+# TEST.
+tst = "!f() { git cap \"🤖 TEST: $@\"; }; f"
+# BREAKING CHANGE.
+brk = "!f() { git cap \"‼️ BREAKING: $@\"; }; f"
 
-	# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-	# Alias for submodule download
-	sdl = submodule update --init --recursive
+# Alias for submodule download
+sdl = submodule update --init --recursive
 
-	# Alias for submodule update
-	sup = submodule update --recursive --remote
+# Alias for submodule update
+sup = submodule update --recursive --remote
 
-	# Alias for submodule add
-	sad = submodule add
+# Alias for submodule add
+sad = submodule add
 
-	# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-	# Alias for git log
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+# Alias for git log
+lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
-	# Alias for git log with stats
-	lgs = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --stat
+# Alias for git log with stats
+lgs = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --stat
 
-	# Alias for git log with stats and diffs
-	lgss = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --stat --patch
+# Alias for git log with stats and diffs
+lgss = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --stat --patch
 
-	# Alias for git log with stats and diffs for a specific file
-	lgss-file = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --stat --patch --follow
+# Alias for git log with stats and diffs for a specific file
+lgss-file = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --stat --patch --follow
 
-	# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-	# List remote branches.
+# List remote branches.
 
-    lrb = "!f() { \
+lrb = "!f() { \
         remote="${1:-origin}"; \
         git ls-remote --heads "$remote"; \
     }; f"
 
-	# List remote tags.
+# List remote tags.
 
-	lrt = "!f() { \
+lrt = "!f() { \
 		remote="${1:-origin}"; \
 		git ls-remote --tags "$remote"; \
 	}; f"
 
-	# List remote branches and tags.
+# List remote branches and tags.
 
-	lr = "!f() { \
+lr = "!f() { \
 		remote="${1:-origin}"; \
 		git lrb "$remote"; \
 		git lrt "$remote"; \
 	}; f"
 
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    # Find commits by source code.
+# Find commits by source code.
 
-    cc = "!f() { \
+cc = "!f() { \
         git log --pretty=custom --decorate --date=short -S\"$1\"; \
     }; f"
 
-    # Find commits by commit message.
+# Find commits by commit message.
 
-    cm = "!f() { \
+cm = "!f() { \
         git log --pretty=custom --decorate --date=short --grep=\"$1\"; \
     }; f"
 
-	# Find commits by author.
+# Find commits by author.
 
-	ca = "!f() { \
+ca = "!f() { \
 		git log --pretty=custom --decorate --date=short --author=\"$1\"; \
 	}; f"
 
-	# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-	# Remove last commit and keep changes.
-	ulc = reset --soft HEAD~1
+# Remove last commit and keep changes.
+ulc = reset --soft HEAD~1
 
-	# Remove last commit forceably.
-	ulcf = reset --hard HEAD~1
+# Remove last commit forceably.
+ulcf = reset --hard HEAD~1
 
-	# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-	# Start web-based visualizer using instaweb
-	# Only works before you've pushed to a remote,
-	# but have made a commit.
-	# see: https://git-scm.com/docs/git-instaweb
-	w = instaweb --local -d webrick
+# Start web-based visualizer using instaweb
+# Only works before you've pushed to a remote,
+# but have made a commit.
+# see: https://git-scm.com/docs/git-instaweb
+w = instaweb --local -d webrick
