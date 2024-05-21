@@ -4,7 +4,7 @@
 
 # Mac OS configuration
 #
-# This configuration applies to the latest version of macOS (currently 12.0.1),
+# This configuration applies to the latest version of macOS (currently 14.5),
 # and sets up preferences and configurations for all the built-in services and
 # apps. Third-party app config should be done elsewhere.
 #
