@@ -3,7 +3,7 @@
 # The following commands are used to modify preferences related to the App Store and Software Update services on macOS using the `defaults` command:
 
 # 1. Enable Debug Menu in the App Store:
-defaults write com.apple.appstore ShowDebugMenu -bool true
+# defaults write com.apple.appstore ShowDebugMenu -bool true
 # This command enables the Debug Menu in the macOS App Store application.
 # `com.apple.appstore` specifies the domain for the App Store application.
 # `ShowDebugMenu` is the key for enabling the Debug Menu.
@@ -37,4 +37,4 @@ defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
 
 # Note: These changes may affect the behavior of the App Store and Software Update services and might require a system restart to take full effect.
 
-killall "App Store" &> /dev/null
+killall "App Store" &>/dev/null

@@ -2,11 +2,11 @@
 
 # Customize Finder Preferences and Views on macOS:
 
-# Set Desktop as the Default Location for New Finder Windows
-defaults write com.apple.finder NewWindowTarget -string "PfDe"
-defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
+# Set Documents as the Default Location for New Finder Windows
+defaults write com.apple.finder NewWindowTarget -string "PfDo"
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Documents/"
 # Configures Finder to open new windows with the Desktop as the default view.
-# `NewWindowTarget` - "PfDe" sets Desktop as the target for new windows.
+# `NewWindowTarget` - "PfDo" sets Documents as the target for new windows.
 # `NewWindowTargetPath` specifies the path to the Desktop using an environment variable for the user's home directory.
 
 # Show Icons for Various Drives on the Desktop
@@ -77,7 +77,7 @@ defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 chflags nohidden ~/Library
 # Unhides the user's Library folder, which is hidden by default in macOS.
 
-killall "Finder" &> /dev/null
+killall "Finder" &>/dev/null
 
 # Starting with Mac OS X Mavericks preferences are cached,
 # so in order for things to get properly set using `PlistBuddy`,
@@ -85,4 +85,4 @@ killall "Finder" &> /dev/null
 #
 # https://github.com/alrra/dotfiles/commit/035dda057ddc6013ba21db3d2c30eeb51ba8f200
 
-killall "cfprefsd" &> /dev/null
+killall "cfprefsd" &>/dev/null
