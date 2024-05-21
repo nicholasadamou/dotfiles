@@ -1,0 +1,6 @@
+# Installing NordVPN via apt is deprecated
+# deb "nordvpn" [args: "https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn-release_1.0.0_all.deb", "nordvpn-release_1.0.0_all.deb"]
+# apt "nordvpn"
+
+apt "curl"
+apt "wget"

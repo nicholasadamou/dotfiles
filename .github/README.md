@@ -1,6 +1,6 @@
 # Nick's dotfiles 
 
-Nick's sensible MacOS defaults based on [`set-me-up-blueprint`](https://github.com/dotbrains/set-me-up-blueprint).
+Nick's sensible defaults based on [`set-me-up-blueprint`](https://github.com/dotbrains/set-me-up-blueprint).
 
 ## What's inside
 

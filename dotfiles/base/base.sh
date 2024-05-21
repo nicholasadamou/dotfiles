@@ -92,9 +92,19 @@ install_fisher_packages() {
 
 main() {
 
-    # Run the base `set-me-up`` script
+    # Run the base `set-me-up` script
 
     bash <(curl -s -L "https://raw.githubusercontent.com/dotbrains/set-me-up/master/dotfiles/base/base.sh")
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    brew_bundle_install -f "brewfile"
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    if is_debian; then
+        apt_install_from_file "packages"
+    fi
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -110,9 +120,13 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    # Configure MacOS preferences
+    if is_debian; then
+        bash "$dotfiles"/modules/debian/preferences/preferences.sh
+    fi
 
-    bash "$dotfiles"/modules/macos/preferences/preferences.sh
+    if is_macos; then
+        bash "$dotfiles"/modules/macos/preferences/preferences.sh
+    fi
 
 }
 

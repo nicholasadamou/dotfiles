@@ -1,0 +1,42 @@
+# File/directory management
+apt "symlinks"
+apt "trash-cli"
+apt "ranger"
+
+# networking
+apt "wget"
+apt "curl"
+
+# package managers
+apt "aptitude"
+apt "gdebi"
+
+# terminal
+apt "terminator"
+
+# snaps
+
+# development
+snap "gitkraken" [args: "--classic"]
+snap "insomnia"
+snap "code" [args: "--classic"]
+
+# browsers
+snap "firefox"
+
+# media
+snap "spotify"
+
+# debian packages
+
+# browsers
+deb "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" [name: "google-chrome-stable.deb"]
+
+# security
+deb "https://downloads.1password.com/linux/debian/amd64/stable/1password-latest.deb" [name: "1password.deb"]
+
+# Cloud Sync Providers
+
+# insync
+# see: https://www.insynchq.com/downloads/linux#ubuntu
+deb "https://cdn.insynchq.com/builds/linux/insync_3.8.7.50505-mantic_amd64.deb" [name: "insync.deb"]

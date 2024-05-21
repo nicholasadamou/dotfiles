@@ -1,0 +1,78 @@
+cask_args appdir: "/Applications"
+
+tap "buo/cask-upgrade"
+
+# Security
+cask "1password"
+cask "1password-cli"
+cask "nordvpn"
+
+# Everything VM related
+cask "rancher"
+cask "parallels"
+
+# Web browsers
+cask "brave-browser"
+
+# Music
+cask "spotify"
+
+# Core development
+cask "iterm2"
+cask "warp"
+# cask "kaleidoscope" # removed due to requiring a subscription
+cask "ksdiff"
+cask "insomnia"
+
+# IDEs
+
+# Jetbrains
+cask "jetbrains-toolbox"
+
+cask "visual-studio-code"
+
+# File/directory management
+# cask "osxfuse" # not compatible with Mac OS Monterey and up
+# brew "ext4fuse"
+
+# Cloud Drive
+cask "insync"
+
+# Networking
+cask "ngrok"
+
+# Mac OS management
+cask "setapp" # Install favorite apps installing 'setapp'
+cask "appcleaner"
+cask "muzzle"
+cask "raycast"
+cask "betterdisplay"
+cask "contexts"
+cask "topnotch"
+cask "rectangle-pro"
+cask "hyperkey"
+
+# Media players
+cask "iina"
+
+# Backups
+cask "imazing"
+
+# Design
+cask "figma"
+cask "colorsnapper"
+cask "drawio"
+
+# Office
+cask "microsoft-office"
+cask "tempbox"
+cask "grammarly"
+
+# Install developer friendly quick look plugins
+cask "syntax-highlight"
+
+# AI
+cask "chatgpt"
+
+# Misc.
+cask "rocket"
