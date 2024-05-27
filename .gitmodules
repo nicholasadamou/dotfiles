@@ -22,3 +22,6 @@ url = https://github.com/dotbrains/bash.git
 [submodule "dotfiles/tag-nicholas/config/fish"]
 path = dotfiles/tag-nicholas/config/fish
 url = https://github.com/dotbrains/fish.git
+[submodule "dotfiles/modules/macos/preferences"]
+	path = dotfiles/modules/macos/preferences
+	url = https://github.com/nicholasadamou/preferences
