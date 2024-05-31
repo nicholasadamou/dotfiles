@@ -78,10 +78,6 @@ install_fisher_packages() {
         cat <"$HOME/.config/fish/fish_plugins" | while read -r PACKAGE; do
             fisher_install "$PACKAGE"
         done
-    else
-        cat <"$dotfiles/tag-smu/config/fish/fish_plugins" | while read -r PACKAGE; do
-            fisher_install "$PACKAGE"
-        done
     fi
 
     fisher_update
