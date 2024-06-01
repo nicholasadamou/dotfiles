@@ -93,7 +93,7 @@ execute_for_platform() {
     case $platform in
     debian) bash "$dotfiles/modules/debian/$action/$action.sh" ;;
     macos) bash "$dotfiles/modules/macos/$action/$action.sh" ;;
-    *) echo "Unsupported platform: $platform" ;;
+    *) bash "$dotfiles/modules/universal/$action/$action.sh" ;;
     esac
 }
 
@@ -109,7 +109,7 @@ main() {
 
     # Run the base `set-me-up` script
 
-    bash <(curl -s -L "https://raw.githubusercontent.com/dotbrains/set-me-up/master/dotfiles/base/base.sh")
+    execute_for_platform "$platform" "base"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
