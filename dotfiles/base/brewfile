@@ -75,6 +75,9 @@ brew "httpie"
 brew "ssh-copy-id"
 brew "pv"
 
+# Terminal
+brew "alacritty"
+
 # Terminal multiplexing
 brew "tmux"
 brew "reattach-to-user-namespace"
