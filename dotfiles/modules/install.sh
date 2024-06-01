@@ -5,11 +5,6 @@
 export SMU_BLUEPRINT=${SMU_BLUEPRINT:-"nicholasadamou/dotfiles"}
 export SMU_BLUEPRINT_BRANCH=${SMU_BLUEPRINT_BRANCH:-"main"}
 
-# The set-me-up version to download
-# Available versions:
-# 1. 'master' (default) - Supports macOS, Debian Linux, and Windows (via WSL if the base subsystem is Debian/Ubuntu Linux).
-export SMU_VERSION=${SMU_VERSION:-"master"}
-
 # A set of ignored paths that 'git' will ignore
 # syntax: '<path>|<path>'
 # Note: <path> is relative to '$HOME/set-me-up'
