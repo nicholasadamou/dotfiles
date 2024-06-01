@@ -93,7 +93,8 @@ execute_for_platform() {
     case $platform in
     debian) bash "$dotfiles/modules/debian/$action/$action.sh" ;;
     macos) bash "$dotfiles/modules/macos/$action/$action.sh" ;;
-    *) bash "$dotfiles/modules/universal/$action/$action.sh" ;;
+    universal) bash "$dotfiles/modules/universal/$action/$action.sh" ;;
+    *) printf "Platform %s not supported\n" "$platform" ;;
     esac
 }
 
@@ -109,7 +110,7 @@ main() {
 
     # Run the base `set-me-up` script
 
-    execute_for_platform "$platform" "base"
+    execute_for_platform "universal" "base"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
