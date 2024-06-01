@@ -86,6 +86,25 @@ install_fisher_packages() {
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+execute_for_platform() {
+    local platform="$1"
+    local action="$2"
+
+    case $platform in
+    debian) bash "$dotfiles/modules/debian/$action/$action.sh" ;;
+    macos) bash "$dotfiles/modules/macos/$action/$action.sh" ;;
+    *) echo "Unsupported platform: $platform" ;;
+    esac
+}
+
+if is_debian; then
+    platform="debian"
+elif is_macos; then
+    platform="macos"
+fi
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 main() {
 
     # Run the base `set-me-up` script
@@ -116,13 +135,11 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    if is_debian; then
-        bash "$dotfiles"/modules/debian/preferences/preferences.sh
-    fi
+    execute_for_platform "$platform" "fonts"
 
-    if is_macos; then
-        bash "$dotfiles"/modules/macos/preferences/preferences.sh
-    fi
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    execute_for_platform "$platform" "preferences"
 
 }
 

@@ -13,6 +13,7 @@ declare current_dir &&
 # see: https://www.nerdfonts.com/font-downloads
 declare -a fonts=(
     FiraCode
+    JetBrainsMono
 )
 
 main() {
