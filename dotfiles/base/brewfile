@@ -29,6 +29,9 @@ brew "wget"
 brew "bash"
 brew "bash-completion@2"
 
+# fish shell
+brew "fish"
+
 # Image processing
 brew "webkit2png"
 brew "zopfli"
