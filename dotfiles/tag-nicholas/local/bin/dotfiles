@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# shellcheck source=/dev/null
+
 BIN_NAME=$(basename "$0")
 COMMAND_NAME=$1
 
@@ -24,7 +26,7 @@ edit() {
 update() {
   rm -rf "$SMU_PATH"
 
-  bash <(curl -s -L https://raw.githubusercontent.com/dotbrains/dotfiles/master/dotfiles/modules/install.sh)
+  bash <(curl -s -L https://raw.githubusercontent.com/nicholasadamou/dotfiles/master/dotfiles/modules/install.sh)
 }
 
 clean() {
