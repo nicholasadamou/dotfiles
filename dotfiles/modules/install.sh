@@ -10,4 +10,4 @@ export SMU_BLUEPRINT_BRANCH=${SMU_BLUEPRINT_BRANCH:-"main"}
 # Note: <path> is relative to '$HOME/set-me-up'
 export SMU_IGNORED_PATHS="${SMU_IGNORED_PATHS:-""}"
 
-bash <(curl -s -L https://raw.githubusercontent.com/dotbrains/set-me-up-installer/main/install.sh)
+bash <(curl -s -L https://raw.githubusercontent.com/dotbrains/set-me-up-installer/main/install.sh) "$@"
