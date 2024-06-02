@@ -21,7 +21,7 @@ understand [what it does](/dotfiles/modules/install.sh). Seriously, **DON'T**!)
 
 3. Use the `smu` script (which you will find inside the `smu` home directory) to run the base module.
 
-        bash ~/set-me-up/set-me-up-installer/smu --provision --module base
+        bash ~/set-me-up/set-me-up-installer/smu --base
 
     ⚠️ Please note that after running the base module, moving the source folder is not recommended due to the usage of symlinks.
 
