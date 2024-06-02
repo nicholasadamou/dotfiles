@@ -27,7 +27,7 @@ brew "wget"
 
 # Install a more recent version of 'bash'.
 brew "bash"
-brew "bash-completion2"
+brew "bash-completion@2"
 
 # Image processing
 brew "webkit2png"
@@ -103,7 +103,7 @@ brew "ack"
 brew "shellcheck"
 brew "micro"
 brew "pandoc"
-brew "hh"
+brew "hstr"
 brew "entr"
 brew "asitop"
 brew "code-minimap"
