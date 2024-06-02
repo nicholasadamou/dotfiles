@@ -68,7 +68,7 @@ brew "pigz"
 brew "xz"
 
 # Networking
-brew "speedtest_cli"
+brew "speedtest-cli"
 brew "httpie"
 brew "ssh-copy-id"
 brew "pv"
