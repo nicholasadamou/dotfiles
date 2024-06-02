@@ -50,9 +50,7 @@ cask "ksdiff"
 brew "fzf"
 brew "fzy"
 brew "z"
-brew "exa"
 brew "zoxide"
-brew "exa"
 brew "bat"
 brew "goto"
 brew "jump"
@@ -75,9 +73,6 @@ brew "httpie"
 brew "ssh-copy-id"
 brew "pv"
 
-# Terminal
-brew "alacritty"
-
 # Terminal multiplexing
 brew "tmux"
 brew "reattach-to-user-namespace"
@@ -91,9 +86,6 @@ brew "lazydocker"
 
 # Security
 brew "maliceio/tap/malice"
-
-# Music
-brew "spotify-tui"
 
 # Misc.
 brew "shellcheck"

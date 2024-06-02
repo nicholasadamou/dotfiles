@@ -18,6 +18,7 @@ cask "brave-browser"
 cask "spotify"
 
 # Core development
+cask "alacritty"
 cask "iterm2"
 cask "warp"
 # cask "kaleidoscope" # removed due to requiring a subscription
