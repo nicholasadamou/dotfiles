@@ -65,6 +65,7 @@ brew "piknik"
 brew "rm-improved"
 brew "ripgrep"
 brew "fd"
+brew "eza"
 
 # Compression utilities
 brew "p7zip"
