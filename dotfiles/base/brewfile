@@ -46,6 +46,7 @@ brew "git-extras"
 brew "hub"
 brew "tig"
 brew "gh"
+brew "ghq"
 brew "lazygit"
 cask "ksdiff"
 
