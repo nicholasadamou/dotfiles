@@ -1,4 +1,6 @@
-# Nick's dotfiles 
+# Nick's dotfiles
+
+![preview](assets/preview.png)
 
 Nick's sensible defaults based on [`set-me-up-blueprint`](https://github.com/dotbrains/set-me-up-blueprint).
 
