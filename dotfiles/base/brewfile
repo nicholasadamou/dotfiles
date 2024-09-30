@@ -92,6 +92,12 @@ brew "lazydocker"
 # Security
 brew "maliceio/tap/malice"
 
+# Formatters
+brew "stylua"
+brew "google-java-format"
+brew "black"
+brew "prettier"
+
 # Misc.
 brew "shellcheck"
 brew "killport"
