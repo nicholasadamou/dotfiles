@@ -94,7 +94,7 @@ detect_extensions = ['Dockerfile']
 [jobs]
 symbol = ' '
 style = 'red'
-number_threshold = 1
+number_threshold = 2
 format = '[$symbol]($style)'
 
 [cmd_duration]
