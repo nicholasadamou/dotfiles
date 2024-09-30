@@ -91,12 +91,6 @@ format = '[$symbol]($style) $path'
 detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
 detect_extensions = ['Dockerfile']
 
-[jobs]
-symbol = ' '
-style = 'red'
-number_threshold = 2
-format = '[$symbol]($style)'
-
 [cmd_duration]
 min_time = 500
 style = 'fg:gray'
