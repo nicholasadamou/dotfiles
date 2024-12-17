@@ -1,0 +1,163 @@
+#!/usr/bin/env python3
+
+import argparse
+import os
+import subprocess
+import sys
+import pyfiglet
+
+
+def print_banner():
+    """Print an ASCII art banner using pyfiglet."""
+    banner = pyfiglet.figlet_format("Git Repo Updater")
+    print(banner)
+    print("---------------------------------------------------------------")
+
+def display_custom_help():
+    """Display a custom help message."""
+    help_text = """
+Usage: update-repos [DIRECTORY]
+
+Updates Git repositories in the specified DIRECTORY or in ~/Documents/GitHub/github.com if no directory is provided.
+
+Options:
+  --help       Display this help message and exit.
+
+Behavior:
+  - Skips repositories with uncommitted changes (dirty repositories).
+  - Skips updating submodules if present.
+  - Skips repositories if the current Git user lacks pull permissions.
+  - Fetches and pulls the latest changes using 'git fetch --all' and 'git pull --rebase'.
+
+Examples:
+  update-repos                  # Update repos in ~/Documents/GitHub/github.com
+  update-repos /custom/path     # Update repos in /custom/path
+"""
+    print_banner()
+    print(help_text)
+
+
+def parse_arguments():
+    parser = argparse.ArgumentParser(add_help=False)
+    parser.add_argument(
+        "directory",
+        nargs="?",
+        default=os.path.expanduser("~/Documents/GitHub/github.com"),
+        help=argparse.SUPPRESS,  # Hide default help formatting for this argument
+    )
+    parser.add_argument(
+        "--help",
+        action="store_true",
+        help="Display this help message and exit.",
+    )
+    return parser.parse_args()
+
+
+def is_git_repository(directory):
+    """Check if a directory is a Git repository."""
+    return os.path.isdir(os.path.join(directory, ".git"))
+
+
+def has_pull_permissions(directory):
+    """Check if the current Git user has pull permissions using 'git ls-remote'."""
+    try:
+        subprocess.run(
+            ["git", "ls-remote"],
+            cwd=directory,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            check=True,
+        )
+        return True
+    except subprocess.CalledProcessError:
+        return False
+
+
+def is_dirty_repository(directory):
+    """Check if a repository has uncommitted changes."""
+    try:
+        subprocess.run(
+            ["git", "diff-index", "--quiet", "HEAD", "--"],
+            cwd=directory,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            check=True,
+        )
+        return False
+    except subprocess.CalledProcessError:
+        return True
+
+
+def update_repository(directory):
+    """Fetch and pull the latest changes in a repository."""
+    print(f"Updating {directory}...")
+    subprocess.run(["git", "fetch", "--all"], cwd=directory, stdout=sys.stdout, stderr=sys.stderr)
+    subprocess.run(["git", "pull", "--rebase"], cwd=directory, stdout=sys.stdout, stderr=sys.stderr)
+
+
+def contains_submodules(directory):
+    """Check if a repository has submodules."""
+    gitmodules_path = os.path.join(directory, ".gitmodules")
+    return os.path.isfile(gitmodules_path)
+
+
+def main():
+    args = parse_arguments()
+
+    if args.help:
+        display_custom_help()
+        sys.exit(0)
+
+    print_banner()
+
+    github_dir = args.directory
+    if not os.path.isdir(github_dir):
+        print(f"Directory {github_dir} does not exist.")
+        sys.exit(1)
+
+    # Walk through the repositories
+    for root, dirs, _ in os.walk(github_dir):
+        for directory in dirs:
+            repo_path = os.path.join(root, directory)
+            if not is_git_repository(repo_path):
+                continue
+
+            print(f"Checking {repo_path}...")
+
+            # Check pull permissions
+            if not has_pull_permissions(repo_path):
+                print(f"Skipping {repo_path} (insufficient permissions to pull)")
+                continue
+
+            # Check for uncommitted changes
+            if is_dirty_repository(repo_path):
+                print(f"Skipping {repo_path} (dirty repository)")
+                continue
+
+            # Update repository
+            update_repository(repo_path)
+
+            # Skip submodules if present
+            if contains_submodules(repo_path):
+                print(f"Skipping submodule updates for {repo_path}")
+
+            print()
+
+        # Avoid descending into subdirectories further
+        break
+
+
+if __name__ == "__main__":
+    try:
+        import pyfiglet
+    except ImportError:
+        print("\n[!] The 'pyfiglet' module is required but not installed.\n")
+        print("To install it globally and securely using pipx, run:")
+        print("  pipx install pyfiglet\n")
+        print("If you don't have pipx installed, you can learn more about it here:")
+        print("  https://github.com/pypa/pipx\n")
+        print("Alternatively, you can install it locally with pip:")
+        print("  pip install pyfiglet\n")
+        sys.exit(1)
+
+    main()
