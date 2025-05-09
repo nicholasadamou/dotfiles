@@ -52,6 +52,7 @@ cask "contexts"
 cask "topnotch"
 cask "rectangle-pro"
 cask "hyperkey"
+cask "dockdoor"
 
 # Media players
 cask "iina"
