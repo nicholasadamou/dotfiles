@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+# XDG Base Directory Specification
+export INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}/readline/inputrc"
+export CURL_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/curl"
+export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"

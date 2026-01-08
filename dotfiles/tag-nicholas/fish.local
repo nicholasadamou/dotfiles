@@ -1,0 +1,6 @@
+#!/usr/bin/env fish
+
+# XDG Base Directory Specification
+set -gx INPUTRC (test -n "$XDG_CONFIG_HOME"; and echo "$XDG_CONFIG_HOME"; or echo "$HOME/.config")/readline/inputrc
+set -gx CURL_HOME (test -n "$XDG_CONFIG_HOME"; and echo "$XDG_CONFIG_HOME"; or echo "$HOME/.config")/curl
+set -gx WGETRC (test -n "$XDG_CONFIG_HOME"; and echo "$XDG_CONFIG_HOME"; or echo "$HOME/.config")/wget/wgetrc
