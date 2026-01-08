@@ -21,6 +21,10 @@ understand [what it does](/dotfiles/modules/install.sh). Seriously, **DON'T**!)
 
         bash <(curl -s -L https://raw.githubusercontent.com/nicholasadamou/dotfiles/main/dotfiles/modules/install.sh)
 
+    For fish shell users:
+
+        curl -s -L https://raw.githubusercontent.com/nicholasadamou/dotfiles/main/dotfiles/modules/install.sh | bash
+
 3. Use the `smu` script (which you will find inside the `smu` home directory) to run the base module.
 
         bash ~/set-me-up/set-me-up-installer/smu --base
