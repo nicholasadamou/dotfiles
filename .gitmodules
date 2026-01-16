@@ -22,13 +22,6 @@ url = https://github.com/dotbrains/bash.git
 [submodule "dotfiles/tag-nicholas/config/fish"]
 path = dotfiles/tag-nicholas/config/fish
 url = https://github.com/dotbrains/fish.git
-[submodule "dotfiles/modules/macos/preferences"]
-path = dotfiles/modules/macos/preferences
-url = https://github.com/nicholasadamou/preferences
-[submodule "dotfiles/modules/debian/preferences"]
-path = dotfiles/modules/debian/preferences
-url = https://github.com/nicholasadamou/preferences
-branch = debian
 [submodule "dotfiles/tag-nicholas/config/alacritty"]
 	path = dotfiles/tag-nicholas/config/alacritty
 	url = https://github.com/dotbrains/alacritty
