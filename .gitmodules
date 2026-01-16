@@ -34,3 +34,6 @@ url = https://github.com/dotbrains/fish.git
 [submodule "dotfiles/modules/macos/macports"]
 	path = dotfiles/modules/macos/macports
 	url = https://github.com/dotbrains/macports-module
+[submodule "dotfiles/modules/preferences"]
+	path = dotfiles/modules/preferences
+	url = https://github.com/dotbrains/preferences-module

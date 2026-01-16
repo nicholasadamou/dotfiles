@@ -95,6 +95,7 @@ execute_for_platform() {
     case $platform in
     debian) bash "$dotfiles/modules/debian/$action/$action.sh" ;;
     macos) bash "$dotfiles/modules/macos/$action/$action.sh" ;;
+    arch) bash "$dotfiles/modules/arch/$action/$action.sh" ;;
     universal) bash "$dotfiles/modules/universal/$action/$action.sh" ;;
     *) printf "Platform %s not supported\n" "$platform" ;;
     esac
@@ -104,6 +105,10 @@ if is_debian; then
     platform="debian"
 elif is_macos; then
     platform="macos"
+elif is_arch_linux; then
+    platform="arch"
+else
+    platform="universal"
 fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
