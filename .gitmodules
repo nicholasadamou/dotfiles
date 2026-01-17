@@ -37,3 +37,6 @@ url = https://github.com/dotbrains/fish.git
 [submodule "dotfiles/modules/preferences"]
 	path = dotfiles/modules/preferences
 	url = https://github.com/dotbrains/preferences-module
+[submodule "dotfiles/tag-nicholas/config/nushell"]
+	path = dotfiles/tag-nicholas/config/nushell
+	url = https://github.com/dotbrains/nushell
