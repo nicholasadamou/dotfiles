@@ -40,3 +40,6 @@ url = https://github.com/dotbrains/fish.git
 [submodule "dotfiles/tag-nicholas/config/nushell"]
 	path = dotfiles/tag-nicholas/config/nushell
 	url = https://github.com/dotbrains/nushell
+[submodule "docs"]
+	path = docs
+	url = https://github.com/dotbrains/set-me-up-docs
