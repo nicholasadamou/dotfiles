@@ -13,7 +13,7 @@ Nick's sensible defaults based on [`set-me-up-blueprint`](https://github.com/dot
 
 [![xkcd: Automation](http://imgs.xkcd.com/comics/automation.png)](http://xkcd.com/1319/)
 
-1.  [Read the docs](https://github.com/dotbrains/set-me-up-docs#set-me-up).
+1.  [Read the docs](https://github.com/dotbrains/set-me-up-docs).
 2.  Use the [installer](/dotfiles/modules/install.sh) to obtain `set-me-up` and Nick's blueprint.
 
     (⚠️ **DO NOT** run the `install` snippet if you don't fully
