@@ -22,7 +22,6 @@ cask "alacritty"
 cask "iterm2"
 cask "warp"
 # cask "kaleidoscope" # removed due to requiring a subscription
-cask "ksdiff"
 cask "insomnia"
 
 # IDEs
