@@ -88,15 +88,15 @@ install_fisher_packages() {
 
 execute_for_platform() {
     local platform="$1"
-    local action="$2"
+    local module="$2"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     case $platform in
-    debian) bash "$dotfiles/modules/debian/$action/$action.sh" ;;
-    macos) bash "$dotfiles/modules/macos/$action/$action.sh" ;;
-    arch) bash "$dotfiles/modules/arch/$action/$action.sh" ;;
-    universal) bash "$dotfiles/modules/universal/$action/$action.sh" ;;
+    debian) bash "$dotfiles/modules/$module/$platform/$platform.sh" ;;
+    macos) bash "$dotfiles/modules/$module/$platform/$platform.sh" ;;
+    arch) bash "$dotfiles/modules/$module/$platform/$platform.sh" ;;
+    universal) bash "$dotfiles/modules/$module/$platform/$platform.sh" ;;
     *) printf "Platform %s not supported\n" "$platform" ;;
     esac
 }
