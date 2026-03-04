@@ -31,6 +31,13 @@ understand [what it does](/dotfiles/modules/install.sh). Seriously, **DON'T**!)
 
     ⚠️ Please note that after running the base module, moving the source folder is not recommended due to the usage of symlinks.
 
+## Updating Submodules
+
+```sh
+git submodule update --remote --merge
+git add -A && git commit -m "chore: update git submodules" && git push
+```
+
 ## License
 
-The code is available under the [MIT license](LICENSE).
+The code is available under the MIT.
