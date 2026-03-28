@@ -43,3 +43,12 @@ url = https://github.com/dotbrains/fish.git
 [submodule "docs"]
 	path = docs
 	url = https://github.com/dotbrains/set-me-up-docs
+[submodule "dotfiles/tag-nicholas/config/opencode"]
+	path = dotfiles/tag-nicholas/config/opencode
+	url = https://github.com/dotbrains/opencode
+[submodule "dotfiles/tag-nicholas/config/gh-dash"]
+	path = dotfiles/tag-nicholas/config/gh-dash
+	url = https://github.com/dotbrains/gh-dash
+[submodule "dotfiles/tag-nicholas/config/television"]
+	path = dotfiles/tag-nicholas/config/television
+	url = https://github.com/dotbrains/television
