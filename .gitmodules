@@ -55,3 +55,6 @@ url = https://github.com/dotbrains/fish.git
 [submodule "dotfiles/tag-nicholas/claude"]
 	path = dotfiles/tag-nicholas/claude
 	url = https://github.com/dotbrains/claude
+[submodule "dotfiles/tag-nicholas/codex"]
+	path = dotfiles/tag-nicholas/codex
+	url = https://github.com/dotbrains/codex
