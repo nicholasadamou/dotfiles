@@ -58,3 +58,6 @@ url = https://github.com/dotbrains/fish.git
 [submodule "dotfiles/tag-nicholas/codex"]
 	path = dotfiles/tag-nicholas/codex
 	url = https://github.com/dotbrains/codex
+[submodule "dotfiles/tag-nicholas/pi"]
+	path = dotfiles/tag-nicholas/pi
+	url = https://github.com/dotbrains/pi
