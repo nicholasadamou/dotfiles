@@ -1,0 +1,19 @@
+#!/usr/bin/env nu
+# XDG Base Directory Specification
+let xdg_config_home = if ($env.XDG_CONFIG_HOME? | is-empty) {
+    ($env.HOME | path join ".config")
+} else {
+    $env.XDG_CONFIG_HOME
+}
+$env.INPUTRC = ($xdg_config_home | path join "readline" "inputrc")
+$env.CURL_HOME = ($xdg_config_home | path join "curl")
+$env.WGETRC = ($xdg_config_home | path join "wget" "wgetrc")
+
+# GitHub user/repo & branch value of your set-me-up blueprint.
+# Set this value when the installer should additionally obtain your blueprint.
+if ($env.SMU_BLUEPRINT? | is-empty) {
+    $env.SMU_BLUEPRINT = "nicholasadamou/dotfiles"
+}
+if ($env.SMU_BLUEPRINT_BRANCH? | is-empty) {
+    $env.SMU_BLUEPRINT_BRANCH = "main"
+}

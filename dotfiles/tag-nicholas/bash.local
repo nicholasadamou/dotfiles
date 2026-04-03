@@ -4,3 +4,8 @@
 export INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}/readline/inputrc"
 export CURL_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/curl"
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
+
+# GitHub user/repo & branch value of your set-me-up blueprint.
+# Set this value when the installer should additionally obtain your blueprint.
+export SMU_BLUEPRINT=${SMU_BLUEPRINT:-"nicholasadamou/dotfiles"}
+export SMU_BLUEPRINT_BRANCH=${SMU_BLUEPRINT_BRANCH:-"main"}
