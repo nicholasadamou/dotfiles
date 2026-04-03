@@ -7,5 +7,9 @@ export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
 
 # GitHub user/repo & branch value of your set-me-up blueprint.
 # Set this value when the installer should additionally obtain your blueprint.
-export SMU_BLUEPRINT=${SMU_BLUEPRINT:-"nicholasadamou/dotfiles"}
-export SMU_BLUEPRINT_BRANCH=${SMU_BLUEPRINT_BRANCH:-"main"}
+if ! readonly -p 2>/dev/null | grep -q 'SMU_BLUEPRINT='; then
+    export SMU_BLUEPRINT=${SMU_BLUEPRINT:-"nicholasadamou/dotfiles"}
+fi
+if ! readonly -p 2>/dev/null | grep -q 'SMU_BLUEPRINT_BRANCH='; then
+    export SMU_BLUEPRINT_BRANCH=${SMU_BLUEPRINT_BRANCH:-"main"}
+fi

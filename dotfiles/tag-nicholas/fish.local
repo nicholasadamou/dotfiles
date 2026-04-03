@@ -7,5 +7,9 @@ set -gx WGETRC (test -n "$XDG_CONFIG_HOME"; and echo "$XDG_CONFIG_HOME"; or echo
 
 # GitHub user/repo & branch value of your set-me-up blueprint.
 # Set this value when the installer should additionally obtain your blueprint.
-set -q SMU_BLUEPRINT; or set -gx SMU_BLUEPRINT "nicholasadamou/dotfiles"
-set -q SMU_BLUEPRINT_BRANCH; or set -gx SMU_BLUEPRINT_BRANCH "main"
+if not set -q SMU_BLUEPRINT; or test -z "$SMU_BLUEPRINT"
+    set -gx SMU_BLUEPRINT "nicholasadamou/dotfiles"
+end
+if not set -q SMU_BLUEPRINT_BRANCH; or test -z "$SMU_BLUEPRINT_BRANCH"
+    set -gx SMU_BLUEPRINT_BRANCH "main"
+end
