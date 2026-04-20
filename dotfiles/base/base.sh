@@ -31,6 +31,7 @@ create_fish_local() {
 change_default_shell_to_fish() {
 
     local PATH_TO_FISH=""
+    local current_shell=""
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -50,15 +51,22 @@ change_default_shell_to_fish() {
     #
     # http://www.linuxfromscratch.org/blfs/view/7.4/postlfs/etcshells.html
 
-    if ! grep -q "$(tr <<<"$PATH_TO_FISH" '\n' '\01')" < <(less "/etc/shells" | tr '\n' '\01'); then
+    if ! grep -Fxq "$PATH_TO_FISH" /etc/shells; then
         printf '%s\n' "$PATH_TO_FISH" | sudo tee -a /etc/shells &>/dev/null
     fi
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     # Set latest version of `fish` as the default shell
+    if is_macos && cmd_exists "dscl"; then
+        current_shell="$(dscl . -read /Users/"${USER}"/ UserShell | cut -d ' ' -f2)"
+    elif cmd_exists "getent"; then
+        current_shell="$(getent passwd "${USER}" | cut -d ':' -f7)"
+    else
+        current_shell="${SHELL:-}"
+    fi
 
-    if [[ "$(dscl . -read /Users/"${USER}"/ UserShell | cut -d ' ' -f2)" != "${PATH_TO_FISH}" ]]; then
+    if [[ "$current_shell" != "${PATH_TO_FISH}" ]]; then
         chsh -s "$PATH_TO_FISH" &>/dev/null
     fi
 
@@ -89,16 +97,32 @@ install_fisher_packages() {
 execute_for_platform() {
     local platform="$1"
     local module="$2"
+    local script=""
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    case $platform in
-    debian) bash "$dotfiles/modules/$module/$platform/$platform.sh" ;;
-    macos) bash "$dotfiles/modules/$module/$platform/$platform.sh" ;;
-    arch) bash "$dotfiles/modules/$module/$platform/$platform.sh" ;;
-    universal) bash "$dotfiles/modules/$module/$platform/$platform.sh" ;;
-    *) printf "Platform %s not supported\n" "$platform" ;;
+    case "$platform" in
+    debian | macos | arch | universal) ;;
+    *)
+        printf "Platform '%s' is not supported\n" "$platform" >&2
+        return 1
+        ;;
     esac
+
+    if [[ "$module" == "preferences" ]]; then
+        script="$dotfiles/modules/preferences/preferences.sh"
+    elif [[ "$platform" == "universal" ]]; then
+        script="$dotfiles/modules/universal/$module/$module.sh"
+    else
+        script="$dotfiles/modules/$platform/$module/$module.sh"
+    fi
+
+    if [[ ! -f "$script" ]]; then
+        printf "Module '%s' is not available for platform '%s' (expected: %s)\n" "$module" "$platform" "$script" >&2
+        return 1
+    fi
+
+    bash "$script"
 }
 
 if is_debian; then
