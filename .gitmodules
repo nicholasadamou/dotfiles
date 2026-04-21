@@ -28,11 +28,11 @@ url = https://github.com/dotbrains/fish.git
 [submodule "dotfiles/modules/universal"]
 	path = dotfiles/modules/universal
 	url = https://github.com/dotbrains/set-me-up-modules
-[submodule "dotfiles/modules/macos/xcode"]
-	path = dotfiles/modules/macos/xcode
+[submodule "dotfiles/modules/macos/development-tools/xcode"]
+	path = dotfiles/modules/macos/development-tools/xcode
 	url = https://github.com/dotbrains/xcode-module
-[submodule "dotfiles/modules/macos/macports"]
-	path = dotfiles/modules/macos/macports
+[submodule "dotfiles/modules/macos/development-tools/macports"]
+	path = dotfiles/modules/macos/development-tools/macports
 	url = https://github.com/dotbrains/macports-module
 [submodule "dotfiles/modules/preferences"]
 	path = dotfiles/modules/preferences

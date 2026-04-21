@@ -1,0 +1,3 @@
+# warp
+# see: https://www.warp.dev/
+snap "warp" [args: "--classic"]

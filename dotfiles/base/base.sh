@@ -114,7 +114,9 @@ execute_for_platform() {
     elif [[ "$platform" == "universal" ]]; then
         script="$dotfiles/modules/universal/$module/$module.sh"
     else
-        script="$dotfiles/modules/$platform/$module/$module.sh"
+        # Handle subpaths like "terminal/terminator" or "browsers/chrome"
+        local module_name="${module##*/}"  # Get last component (e.g., "terminator" from "terminal/terminator")
+        script="$dotfiles/modules/$platform/$module/$module_name/$module_name.sh"
     fi
 
     if [[ ! -f "$script" ]]; then
@@ -167,7 +169,8 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    execute_for_platform "$platform" "fonts"
+    execute_for_platform "$platform" "fonts/fira-code"
+    execute_for_platform "$platform" "fonts/jetbrains-mono"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

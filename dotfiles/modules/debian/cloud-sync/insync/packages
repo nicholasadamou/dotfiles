@@ -1,0 +1,3 @@
+# insync
+# see: https://www.insynchq.com/downloads/linux#ubuntu
+deb "https://cdn.insynchq.com/builds/linux/insync_3.8.7.50505-mantic_amd64.deb" [name: "insync.deb"]
