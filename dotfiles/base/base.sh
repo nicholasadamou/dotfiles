@@ -112,7 +112,9 @@ execute_for_platform() {
     if [[ "$module" == "preferences" ]]; then
         script="$dotfiles/modules/preferences/preferences.sh"
     elif [[ "$platform" == "universal" ]]; then
-        script="$dotfiles/modules/universal/$module/$module.sh"
+        # Handle subpaths like "ai/chatgpt"
+        local module_name="${module##*/}"
+        script="$dotfiles/modules/universal/$module/$module_name.sh"
     else
         # Handle subpaths like "terminal/terminator" or "browsers/chrome"
         local module_name="${module##*/}"  # Get last component (e.g., "terminator" from "terminal/terminator")
