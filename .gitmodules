@@ -28,12 +28,6 @@ url = https://github.com/dotbrains/fish.git
 [submodule "dotfiles/modules/universal"]
 	path = dotfiles/modules/universal
 	url = https://github.com/dotbrains/set-me-up-modules
-[submodule "dotfiles/modules/macos/development-tools/xcode"]
-	path = dotfiles/modules/macos/development-tools/xcode
-	url = https://github.com/dotbrains/xcode-module
-[submodule "dotfiles/modules/macos/development-tools/macports"]
-	path = dotfiles/modules/macos/development-tools/macports
-	url = https://github.com/dotbrains/macports-module
 [submodule "dotfiles/modules/preferences"]
 	path = dotfiles/modules/preferences
 	url = https://github.com/dotbrains/preferences-module
@@ -61,3 +55,9 @@ url = https://github.com/dotbrains/fish.git
 [submodule "dotfiles/tag-nicholas/pi"]
 	path = dotfiles/tag-nicholas/pi
 	url = https://github.com/dotbrains/pi
+[submodule "dotfiles/modules/debian"]
+	path = dotfiles/modules/debian
+	url = https://github.com/dotbrains/set-me-up-debian-modules
+[submodule "dotfiles/modules/macos"]
+	path = dotfiles/modules/macos
+	url = https://github.com/dotbrains/set-me-up-macos-modules
