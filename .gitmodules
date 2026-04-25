@@ -61,3 +61,6 @@ url = https://github.com/dotbrains/fish.git
 [submodule "dotfiles/modules/macos"]
 	path = dotfiles/modules/macos
 	url = https://github.com/dotbrains/set-me-up-macos-modules
+[submodule "dotfiles/tag-nicholas/config/zed"]
+	path = dotfiles/tag-nicholas/config/zed
+	url = https://github.com/dotbrains/zed
