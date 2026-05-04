@@ -174,10 +174,6 @@ main() {
     execute_for_platform "$platform" "fonts/fira-code"
     execute_for_platform "$platform" "fonts/jetbrains-mono"
 
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    execute_for_platform "$platform" "preferences"
-
 }
 
 main
