@@ -1,4 +1,10 @@
 Host *
+  IgnoreUnknown UseKeychain
   AddKeysToAgent yes
   ForwardAgent yes
   UseKeychain yes
+
+# Route ssh-agent traffic through 1Password's agent on macOS so SSH keys
+# stored in 1Password are available to ssh/git without a separate agent.
+Host *
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
